@@ -22,11 +22,12 @@ CREATE TABLE CUSTOMERS(
        PRIMARY KEY (ID)
 );
 
-	CREATE TABLE ORDERS (
+use DBname
+	CREATE TABLE CUST_ORDERS (
 	       ID          INT        NOT NULL,
 	       DATE        DATETIME, 
 	       CUSTOMER_ID INT references CUSTOMERS(ID),
-	       AMOUNT     double,
+	       AMOUNT     float,
 	       PRIMARY KEY (ID)
 	);
 
@@ -54,7 +55,6 @@ INSERT INTO Customers VALUES ('Cardinal','Tom B. Erichsen','Skagen 21','Stavange
 
 -- SQL SELECT INTO Statement-
 -- With SQL, you can copy information from one table into another.
-
 -- SELECT *
 -- INTO newtable [IN externaldb]
 -- FROM table1;
@@ -68,7 +68,6 @@ INTO CustomersBackup
 FROM Customers;
 
 -- The INSERT INTO SELECT statement copies data from one table and inserts it into an existing table.
--- Syntax-
 -- INSERT INTO table2
 -- SELECT * FROM table1;
 
@@ -185,7 +184,7 @@ OrderDate datetime NOT NULL DEFAULT NOW(),
 PRIMARY KEY (OrderId)
 )
 
-create database synapse   //first step
+create database synapse  
 create table employee(eid int,name varchar(20),mobile varchar(10),city varchar(20),department varchar(20) , salary int)
 
 insert into employee values(1,'deepak','9874561234','Delhi','php',15000)
