@@ -1,3 +1,5 @@
+-- Get list of databases from SQL Server
+SELECT name FROM master.sys.databases
 
 --  join example
 SELECT ID, NAME, AGE, AMOUNT  FROM CUSTOMERS, ORDERS
