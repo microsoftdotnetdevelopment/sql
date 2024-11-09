@@ -22,6 +22,7 @@ DELETE * FROM table_name
 
 -- The DROP TABLE Statement-
 -- DROP TABLE table_name
+drop table employee
 
 -- The DROP DATABASE Statement
 -- The DROP DATABASE statement is used to delete a database.
@@ -30,6 +31,7 @@ DELETE * FROM table_name
 -- The TRUNCATE TABLE Statement
 -- If we only want to delete the data inside the table, and not the table itself.
 -- TRUNCATE TABLE table_name
+TRUNCATE TABLE dbo.persons
 
 -- The ALTER TABLE Statement
 -- The ALTER TABLE statement is used to add, delete, or modify columns in an existing table.
@@ -40,23 +42,23 @@ DELETE * FROM table_name
 -- To delete a column in a table, use the following syntax (notice that some database systems don't allow deleting a column)
 ALTER TABLE table_name
 DROP COLUMN column_name
-SQL ALTER TABLE Example-
+
+-- SQL ALTER TABLE Example-
 ALTER TABLE Persons
 ADD DateOfBirth date
 
-Change Data Type Example-
+-- Change Data Type Example-
 ALTER TABLE Persons
 ALTER COLUMN DateOfBirth year
 
-DROP COLUMN Example
+-- DROP COLUMN Example
 ALTER TABLE Persons
 DROP COLUMN DateOfBirth
 
-delete employee
-drop table employee
+-- adding columns  by using alter table
+alter table employee1 add designation varchar(20) not null
 
-
-ALTER COMMANDS-
+-- ALTER COMMANDS-
 ALTER TABLE table_name ADD column_name datatype;
 ALTER TABLE table_name DROP COLUMN column_name;
 ALTER TABLE table_name MODIFY COLUMN column_name datatype;
@@ -65,5 +67,14 @@ alter table employee alter column Joining_date date
 alter table classics drop type
 alter table classics rename to classy
 Alter table PersonalDetails ADD Primary Key (AutoId)
-Alter table PersonalDetails Add AutoId int NOT NULL IDENTITY (1, 1) 
+Alter table PersonalDetails Add AutoId int NOT NULL IDENTITY (1, 1) Primary key
+
+ALTER TABLE EMPLOYE add CONSTRAINT EMPLOYEE_PK PRIMARY KEY(EMPLOYEE_ID)
+ALTER TABLE EMPLOYE add CONSTRAINT EMPLOYEE_PK PRIMARY KEY(EMPLOYEE_ID,FIRST_NAME)
+Alter TABLE EMPLOYE drop CONSTRAINT EMPLOYEE_PK;
+-- not a good solution if some columns is PK or FK
+SP_RENAME 'dbo.customers.NAME','firstname'
+
+drop table EmpCompany
 		
+drop table employee1

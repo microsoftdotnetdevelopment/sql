@@ -38,3 +38,367 @@ Q27. What is a Contained Database? How does it affect the Temp Table in SQL?
 Q28. Can you create a column with user-defined data types (UDDT) in the temp table?
 Q29. How many concurrent users can access a stored procedure that uses a temp table?
 Q30. Can you pass a temp table to the stored procedure as a parameter?
+
+
+-- Exercise-
+-- SQL Queries for Freshers 
+-- Table Name : Employee
+-- 1,
+-- Employee_id	First_name	Last_name	Salary		Joining_date		Department
+-- 1 		John 		Abraham 	1000000 	01-JAN-13 12.00.00 AM 	Banking
+-- 2 		Michael 	Clarke 		800000 		01-JAN-13 12.00.00 AM 	Insurance
+-- 3 		Roy 		Thomas 		700000 		01-FEB-13 12.00.00 AM 	Banking
+-- 4 		Tom 		Jose 		600000 		01-FEB-13 12.00.00 AM 	Insurance
+-- 5 		Jerry 		Pinto 		650000 		01-FEB-13 12.00.00 AM 	Insurance
+-- 6 		Philip 		Mathew 		750000 		01-JAN-13 12.00.00 AM 	Services
+-- 7 		TestName1 	123 		650000 		01-JAN-13 12.00.00 AM 	Services
+-- 8 		TestName2 	Lname% 		600000 		01-FEB-13 12.00.00 AM 	Insurance
+
+
+-- Table Name : Incentives
+-- Employee_ref_id		Incentive_date		Incentive_amount
+-- 1 			01-FEB-13 		5000
+-- 2 			01-FEB-13 		3000
+-- 3 			01-FEB-13 		4000
+-- 1 			01-JAN-13 		4500
+-- 2 			01-JAN-13 		3500
+
+
+-- 1.Get all employee details from the employee table
+-- 2. Get First_Name,Last_Name from employee table
+-- 3. Get First_Name from employee table using alias name “Employee Name”
+-- 4. Get First_Name from employee table in upper case
+-- 5. Get First_Name from employee table in lower case
+-- 6. Get unique DEPARTMENT from employee table
+-- 7. Select first 3 characters of FIRST_NAME from EMPLOYEE
+-- 8. Get position of 'o' in name 'John' from employee table
+-- 9. Get FIRST_NAME from employee table after removing white spaces from right side
+-- 10. Get FIRST_NAME from employee table after removing white spaces from left side
+-- 11. Get length of FIRST_NAME from employee table
+-- 12. Get First_Name from employee table after replacing 'o' with '$'
+-- 13. Get First_Name and Last_Name as single column from employee table separated by a '_'
+-- 14. Get FIRST_NAME ,Joining year,Joining Month and Joining Date from employee table
+-- 15. Get all employee details from the employee table order by First_Name Ascending
+-- 16. Get all employee details from the employee table order by First_Name descending
+-- 17. Get all employee details from the employee table order by First_Name Ascending and Salary descending
+-- 18. Get employee details from employee table whose employee name is “John”
+-- 19. Get employee details from employee table whose employee name are “John” and “Roy”
+-- 20. Get employee details from employee table whose employee name are not “John” and “Roy”
+-- 21. Get employee details from employee table whose first name starts with 'J'
+-- 22. Get employee details from employee table whose first name contains 'o'
+-- 23. Get employee details from employee table whose first name ends with 'n'
+-- 24. Get employee details from employee table whose first name ends with 'n' and name contains 4 letters
+-- 25. Get employee details from employee table whose first name starts with 'J' and name contains 4 letters
+-- 26. Get employee details from employee table whose Salary greater than 600000
+-- 27. Get employee details from employee table whose Salary less than 800000
+-- 28. Get employee details from employee table whose Salary between 500000 and 800000
+-- 29. Get employee details from employee table whose name is 'John' and 'Michael'
+-- 30. Get employee details from employee table whose joining year is “2013”
+-- 31. Get employee details from employee table whose joining month is “January”
+-- 32. Get employee details from employee table who joined before January 1st 2013
+-- 33. Get employee details from employee table who joined after January 31st
+-- 35. Get Joining Date and Time from employee table
+-- 36. Get Joining Date,Time including milliseconds from employee table
+-- 37. Get difference between JOINING_DATE and INCENTIVE_DATE from employee and incentives table
+-- 38. Get database date
+-- 39. Get names of employees from employee table who has '%' in Last_Name. Tip : Escape character for special characters in a query.
+-- 40. Get Last Name from employee table after replacing special character with white space
+-- 41. Get department,total salary with respect to a department from employee table.
+-- 42. Get department,total salary with respect to a department from employee table order by total salary descending
+-- 	Select DEPARTMENT,sum(SALARY) Total_Salary from employee group by DEPARTMENT order by Total_Salary descending
+-- 43. Get department,no of employees in a department,total salary with respect to a department from employee table order by total salary descending
+-- 	Select DEPARTMENT,count(FIRST_NAME),sum(SALARY) Total_Salary from employee group by DEPARTMENT order by Total_Salary descending
+-- 44. Get department wise average salary from employee table order by salary ascending
+-- 	select DEPARTMENT,avg(SALARY) AvgSalary from employee group by DEPARTMENT order by AvgSalary asc
+-- 45. Get department wise maximum salary from employee table order by salary ascending
+-- 	select DEPARTMENT,max(SALARY) MaxSalary from employee group by DEPARTMENT order by MaxSalary asc
+-- 46.Get department wise minimum salary from employee table order by salary ascending
+-- 	select DEPARTMENT,min(SALARY) MinSalary from employee group by DEPARTMENT order by MinSalary asc
+-- 47. Select no of employees joined with respect to year and month from employee table
+-- 	select datepart (YYYY,JOINING_DATE) Join_Year,datepart (MM,JOINING_DATE) Join_Month,count(*) Total_Emp from employee group by datepart(YYYY,JOINING_DATE), datepart(MM,JOINING_DATE)
+
+-- 48.Select department,total salary with respect to a department from employee table where total salary greater than 800000 order by Total_Salary descending
+-- 	Select DEPARTMENT,sum(SALARY) Total_Salary from employee group by DEPARTMENT having sum(SALARY) >800000 order by Total_Salary desc
+-- 49. Select employee details from employee table if data exists in incentive table ?
+-- 	select * from EMPLOYEE where exists (select * from INCENTIVES)
+-- 50.How to fetch data that are common in two query results ?
+-- 	select * from EMPLOYEE where EMPLOYEE_ID INTERSECT select * from EMPLOYEE where EMPLOYEE_ID < 4
+-- 51. Get Employee ID's of those employees who didn't receive incentives without using sub query ?
+-- 	select EMPLOYEE_ID from EMPLOYEE
+-- 	Except
+-- 	select EMPLOYEE_REF_ID from INCENTIVES
+
+-- Note : Learn Union, Union All , Intersect and Except
+
+-- 52. Select 20 % of salary from John , 10% of Salary for Roy and for other 15 % of salary from employee table
+-- 	Use Switch Case in Sql
+-- 	SELECT FIRST_NAME, CASE FIRST_NAME WHEN 'John' THEN SALARY * .2 WHEN 'Roy' THEN SALARY * .10 ELSE SALARY * .15 END "Deduced_Amount" FROM EMPLOYEE
+
+-- 53. Select Banking as 'Bank Dept', Insurance as 'Insurance Dept' and Services as 'Services Dept' from employee table
+
+-- 54. Delete employee data from employee table who got incentives in incentive table
+
+-- 55. Insert into employee table Last Name with " ' " (Single Quote - Special Character) 
+-- 	Tip - Use another single quote before special character
+-- 	Insert into employee (LAST_NAME) values ('Test''')
+-- 56.Select Last Name from employee table which contain only numbers
+-- 	Select * from EMPLOYEE where lower(LAST_NAME)=upper(LAST_NAME)
+
+-- 57. Write a query to rank employees based on their incentives for a month
+-- 	select FIRST_NAME,INCENTIVE_AMOUNT,DENSE_RANK() OVER (PARTITION BY INCENTIVE_DATE ORDER BY INCENTIVE_AMOUNT DESC) AS Rank from EMPLOYEE a, INCENTIVES b where a.EMPLOYEE_ID=b.EMPLOYEE_REF_ID
+
+-- 58. Update incentive table where employee name is 'John'
+	 
+-- 59. Select first_name, incentive amount from employee and incentives table for those employees who have incentives
+-- 	Select FIRST_NAME,INCENTIVE_AMOUNT from employee a inner join incentives B on A.EMPLOYEE_ID=B.EMPLOYEE_REF_ID
+-- 60. Select first_name, incentive amount from employee and incentives table for those employees who have incentives and incentive amount greater than 3000
+
+-- 	Select FIRST_NAME,INCENTIVE_AMOUNT from employee a inner join incentives B on A.EMPLOYEE_ID=B.EMPLOYEE_REF_ID and INCENTIVE_AMOUNT >3000
+-- 61. Select first_name, incentive amount from employee and incentives table for all employes even if they didn't get incentives
+-- 	Select FIRST_NAME,INCENTIVE_AMOUNT from employee a left join incentives B on A.EMPLOYEE_ID=B.EMPLOYEE_REF_ID
+-- 62. Select first_name, incentive amount from employee and incentives table for all employees even if they didn't get incentives and set incentive amount as 0 for those employees who didn't get incentives.
+
+-- 	Select FIRST_NAME, ISNULL(INCENTIVE_AMOUNT,0) from employee a left join incentives B on A.EMPLOYEE_ID=B.EMPLOYEE_REF_ID
+
+-- 63. Select first_name, incentive amount from employee and incentives table for all employees who got incentives using left join
+-- 	Select FIRST_NAME, isnull(INCENTIVE_AMOUNT,0) from employee a right join incentives B on A.EMPLOYEE_ID=B.EMPLOYEE_REF_ID
+-- 64. Select max incentive with respect to employee from employee and incentives table using sub query
+-- 	 select DEPARTMENT,(select ISNULL(max(INCENTIVE_AMOUNT),0) from INCENTIVES where EMPLOYEE_REF_ID=EMPLOYEE_ID) Max_incentive from EMPLOYEE
+-- 65. Select TOP 2 salary from employee table
+-- 66. Select TOP N salary from employee table
+-- 	select top N * from employee
+-- 67. Select 2nd Highest salary from employee table
+-- 	select min(SALARY) from (select top 2 * from employee) a
+-- 68. Select Nth Highest salary from employee table
+-- 	select min(SALARY) from (select top N * from employee) a
+-- 69. Select First_Name,LAST_NAME from employee table as separate rows
+-- 	select FIRST_NAME from EMPLOYEE union select LAST_NAME from EMPLOYEE
+
+
+-- 71. Write create table syntax for employee table
+
+-- -CREATE TABLE EMPLOYEE(
+-- EMPLOYEE_ID int NOT NULL,
+-- FIRST_NAME varchar(50) NULL,
+-- LAST_NAME varchar(50) NULL,
+-- SALARY decimal(18, 0) NULL,
+-- JOINING_DATE datetime2(7) default getdate(),
+-- DEPARTMENT varchar(50) NULL)
+
+-- 72. Write syntax to delete table employee
+-- 	DROP table employee;
+
+-- 73. Write syntax to set EMPLOYEE_ID as primary key in employee table
+-- 	ALTER TABLE EMPLOYEE add CONSTRAINT EMPLOYEE_PK PRIMARY KEY(EMPLOYEE_ID)
+-- 74. Write syntax to set 2 fields(EMPLOYEE_ID,FIRST_NAME) as primary key in employee table
+-- 	ALTER TABLE EMPLOYEE add CONSTRAINT EMPLOYEE_PK PRIMARY KEY(EMPLOYEE_ID,FIRST_NAME)
+-- 75. Write syntax to drop primary key on employee table
+-- 	Alter TABLE EMPLOYEE drop CONSTRAINT EMPLOYEE_PK;
+-- 76. Write Sql Syntax to create EMPLOYEE_REF_ID in INCENTIVES table as foreign key with respect to EMPLOYEE_ID in employee table
+-- 	ALTER TABLE INCENTIVES ADD CONSTRAINT INCENTIVES_FK FOREIGN KEY (EMPLOYEE_REF_ID) REFERENCES EMPLOYEE(EMPLOYEE_ID)
+-- 77. Write SQL to drop foreign key on employee table
+-- 	ALTER TABLE INCENTIVES drop CONSTRAINT INCENTIVES_FK;
+-- 78. What is SQL Injection ?
+-- 	SQL Injection is one of the the techniques uses by hackers to hack a website by injecting SQL commands in data fields.
+
+-- -----------------------------------------------------------Other Querrie
+-- 1. SQL Query to find second highest salary of Employee
+-- select MAX(Salary) from Employee WHERE Salary NOT IN (select MAX(Salary) from Employee 
+-- SELECT max(salary) FROM Employee WHERE salary < (SELECT max(salary) FROM Employee);
+-- SELECT TOP 1 salary FROM ( SELECT TOP 2 salary FROM employees ORDER BY salary DESC) AS emp ORDER BY salary ASC
+
+-- 2. SQL Query to find Max Salary from each department.
+-- SELECT DeptID, MAX(Salary) FROM Employee  GROUP BY DeptID.
+
+
+
+-- Exercise-
+-- Create table with the below columns :
+-- pid -- to store the numeric product id
+-- pname -- to store the name of product with maximum 20 characte like Lux,Caddle etc.
+-- pcompany -- to store categories of products like Soap,Wears,Utensils etc.
+-- Pquantity -- to store the quantity of products .
+-- pcost -- to store the amount of products.
+-- psolddate - to store the date on which item was sold to consumers.
+
+-- Now insert maximum 12 rows and fetch the records accordingly
+-- PID
+-- PNAME
+-- PCOMPANY
+-- PQUANTITY
+-- PCOST
+-- PSOLDDATE
+-- 101
+-- SOAP
+-- LUX
+-- 32
+-- 18
+-- 03/12/14
+-- 118
+-- SHOES
+-- ADIDAS
+-- 45
+-- 2500
+-- 02/02/15
+-- 120
+-- SLEEPERS
+-- ADIDAS
+-- 65
+-- 1200
+-- 09/11/15
+-- 156
+-- TSHIRTS
+-- REEBOK
+-- 112
+-- 654
+-- 16/08/2014
+-- 111
+-- SPORT LOWERS
+-- REEBOK
+-- 145
+-- 847
+-- 19/11/2014
+-- 165
+-- LAPTOP
+-- DELL
+-- 100
+-- 28000
+-- 12/12/14
+-- 189
+-- TV
+-- SAMSUNG
+-- 111
+-- 16666
+-- 11/04/14
+-- 245
+-- WRIST WATCH
+-- TIMEX
+-- 99
+-- 1500
+-- 14/11/2014
+-- 196
+-- PHONE
+-- MICROMAX
+-- 78
+-- 7500
+-- 14/11/2014
+-- 200
+-- PHONE
+-- MOTOROLA
+-- 45
+-- 8000
+-- 16/03/2015
+-- 215
+-- TV
+-- LG
+-- 47
+-- 15000
+-- 08/08/14
+-- 217
+-- REFRIGERATOR
+-- LG
+-- 98
+-- 12000
+-- 09/10/14
+
+-- Fetch all the details .
+-- Fetch only PID , PNAME and PSOLDDATE.
+-- Fetch only those records which are having cost more than 5000
+-- Fetch those records whose PID is 217
+-- Fetch only Phone details.
+-- Fetch only the products of company LG,Micromax and Adidas
+-- Fetch the products which are having quanity more than 100 and cost less than 5000.
+-- Fetch the products whose name are starting with  P,L and T.
+-- Fetch the products whose company is ending with S or K.
+-- Fetch the products which are TV,PHONE and REFRIGERATOR.
+-- Display all unique products names.
+-- Fetch the products whose name is having character A at second Index.
+-- Fetch the first three character of  product name and company names.
+-- Fetch the details of those products which are having company character length more than 5.
+-- Display the details in the format like “ Soap is of Rs 18 from company Lux”.
+-- Display the products which are sold in month of November and in year 2014.
+-- Display the details of products which are sold before 6 months from now.
+-- Display the Pid,Pname with total cost means Pcost * Pquantity.
+-- Display the sum , avg , count , max , min of cost of all records.
+
+
+-- Another example of News :
+-- Table : NewsType
+-- Id - Pk, identity , int
+-- Title - unique,not null,varchar(150)//
+-- DateOfAdd - datetime , not null
+-- Active bit
+-- -----Data -----
+-- India
+-- World
+-- Advertisement
+-- Editorial
+-------------------------------------------------------------------------------------------------
+-- Table : NewsCategory
+-- Id - pk,identity , int
+-- Title - varchar(200) , unique, not null //
+-- DateOfAdd - datetime , not null
+-- Active bit
+-----Data-------------
+-- Sports
+-- Entertainment
+-- Business
+-- Technology/Gadgets
+-- Culture
+-- Politics
+-- Weather/Disaster
+-- Health
+-- Automobiles
+-- Others
+
+-- Table : News ( Master table)
+
+-- NewsID - pk , identity , int
+-- NewsTypeID - fk , int
+-- NewsCategoryID - fk , int//drop
+-- Heading - varchar(500) , unique , not null//text
+-- Subheading - varchar(800) , unique , not null//text box
+-- Description - varchar(200) , unique , not null//file upload
+-- ReporterID - uniqueidentifier , fk , not null//drop down
+-- Place - varchar(150) , not null//text
+-- NewsDate - datetime , not null//text
+-- DateOfAdd - datetime , not null
+-- Image - varchar(200) , not null//file upload
+-- EditorID - uniqueidentifier , not null//dropdown
+-- Priority - (1-10) - int , check cosntraintto check for range (1-10)//dropdown
+-- Approved - bit , not null , default constraint for 0.
+-- Read - bit , not null , default constraint for 0.
+-- visit - int , not null
+-- Active bit
+
+-- Table : Reporter
+-- ID - uniqueidentifier , pk 
+-- EditorID  - uniqueidentifier , fk
+-- DateOfAdd - datetime, not null
+-- Active bit
+
+-- Table : Editor
+-- ID : uniqueidentifier , pk
+-- DateOfAdd - datetime , not null
+-- Active bit
+
+-- Table : Person
+
+-- PersonID - pk
+-- PlaceID - int , fk
+-- PersonName - varchar(max), not null
+-- Mobile - varch ar(10) . unique , not null
+-- Email - varchar(200) , unique , not null
+-- CAddress - varchar(800) , unique , not null
+-- PAddress - varchar(800) , unique , not null
+-- DOJ - datetime ,not null
+-- DOB - date , not null
+-- Gender - char(1) , not null 
+-- Anniversary - date , allows null
+-- Active bit
+
+-- Table : Places
+-- ID - int,identity, pk
+-- Name - varchar(150) , not null , unique
+-- DateOFAdd - datetime , not null
+-- Active bit

@@ -7,6 +7,9 @@
 UPDATE Orders
 SET FirstName = 'John', LastName = 'Who' WHERE LastName='Wo'
 
+UPDATE CUSTOMERS
+SET FirstName = 'google' WHERE id=2
+
 -- The UPDATE statement is used to update existing records in a table.
 -- UPDATE table_name
 -- SET column1=value1,column2=value2,...
@@ -15,3 +18,7 @@ SET FirstName = 'John', LastName = 'Who' WHERE LastName='Wo'
 UPDATE Customers
 SET ContactName='Alfred Schmidt', City='Hamburg'
 WHERE CustomerName='Alfreds Futterkiste';
+
+
+
+

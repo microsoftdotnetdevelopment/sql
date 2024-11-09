@@ -11,3 +11,6 @@ select
     as ConnectionString
 from sys.server_principals
 where name = suser_name()
+
+-- SQL Server table to json
+select * from CUST_ORDERS  FOR JSON AUTO  
