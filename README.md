@@ -1,12 +1,10 @@
-# sql
-
+# Sql Server questions
 ```
 sql vs NoSQL  
 Normalization
 Sharding
 Redundancy
 ACID vs CAP
-```
 
 Q01. What is a Temp Table or Temporary Table in SQL? 
 Q02. Is a duplicate Temp Table name allowed?
@@ -38,7 +36,6 @@ Q27. What is a Contained Database? How does it affect the Temp Table in SQL?
 Q28. Can you create a column with user-defined data types (UDDT) in the temp table?
 Q29. How many concurrent users can access a stored procedure that uses a temp table?
 Q30. Can you pass a temp table to the stored procedure as a parameter?
-
 
 -- Exercise-
 -- SQL Queries for Freshers 
@@ -116,8 +113,7 @@ Q30. Can you pass a temp table to the stored procedure as a parameter?
 -- 	select DEPARTMENT,min(SALARY) MinSalary from employee group by DEPARTMENT order by MinSalary asc
 -- 47. Select no of employees joined with respect to year and month from employee table
 -- 	select datepart (YYYY,JOINING_DATE) Join_Year,datepart (MM,JOINING_DATE) Join_Month,count(*) Total_Emp from employee group by datepart(YYYY,JOINING_DATE), datepart(MM,JOINING_DATE)
-
--- 48.Select department,total salary with respect to a department from employee table where total salary greater than 800000 order by Total_Salary descending
+-- 48 Select department,total salary with respect to a department from employee table where total salary greater than 800000 order by Total_Salary descending
 -- 	Select DEPARTMENT,sum(SALARY) Total_Salary from employee group by DEPARTMENT having sum(SALARY) >800000 order by Total_Salary desc
 -- 49. Select employee details from employee table if data exists in incentive table ?
 -- 	select * from EMPLOYEE where exists (select * from INCENTIVES)
@@ -127,39 +123,27 @@ Q30. Can you pass a temp table to the stored procedure as a parameter?
 -- 	select EMPLOYEE_ID from EMPLOYEE
 -- 	Except
 -- 	select EMPLOYEE_REF_ID from INCENTIVES
-
--- Note : Learn Union, Union All , Intersect and Except
-
 -- 52. Select 20 % of salary from John , 10% of Salary for Roy and for other 15 % of salary from employee table
 -- 	Use Switch Case in Sql
 -- 	SELECT FIRST_NAME, CASE FIRST_NAME WHEN 'John' THEN SALARY * .2 WHEN 'Roy' THEN SALARY * .10 ELSE SALARY * .15 END "Deduced_Amount" FROM EMPLOYEE
-
 -- 53. Select Banking as 'Bank Dept', Insurance as 'Insurance Dept' and Services as 'Services Dept' from employee table
-
 -- 54. Delete employee data from employee table who got incentives in incentive table
-
 -- 55. Insert into employee table Last Name with " ' " (Single Quote - Special Character) 
 -- 	Tip - Use another single quote before special character
 -- 	Insert into employee (LAST_NAME) values ('Test''')
--- 56.Select Last Name from employee table which contain only numbers
+-- 56 Select Last Name from employee table which contain only numbers
 -- 	Select * from EMPLOYEE where lower(LAST_NAME)=upper(LAST_NAME)
-
 -- 57. Write a query to rank employees based on their incentives for a month
 -- 	select FIRST_NAME,INCENTIVE_AMOUNT,DENSE_RANK() OVER (PARTITION BY INCENTIVE_DATE ORDER BY INCENTIVE_AMOUNT DESC) AS Rank from EMPLOYEE a, INCENTIVES b where a.EMPLOYEE_ID=b.EMPLOYEE_REF_ID
-
 -- 58. Update incentive table where employee name is 'John'
-	 
 -- 59. Select first_name, incentive amount from employee and incentives table for those employees who have incentives
 -- 	Select FIRST_NAME,INCENTIVE_AMOUNT from employee a inner join incentives B on A.EMPLOYEE_ID=B.EMPLOYEE_REF_ID
 -- 60. Select first_name, incentive amount from employee and incentives table for those employees who have incentives and incentive amount greater than 3000
-
 -- 	Select FIRST_NAME,INCENTIVE_AMOUNT from employee a inner join incentives B on A.EMPLOYEE_ID=B.EMPLOYEE_REF_ID and INCENTIVE_AMOUNT >3000
 -- 61. Select first_name, incentive amount from employee and incentives table for all employes even if they didn't get incentives
 -- 	Select FIRST_NAME,INCENTIVE_AMOUNT from employee a left join incentives B on A.EMPLOYEE_ID=B.EMPLOYEE_REF_ID
 -- 62. Select first_name, incentive amount from employee and incentives table for all employees even if they didn't get incentives and set incentive amount as 0 for those employees who didn't get incentives.
-
 -- 	Select FIRST_NAME, ISNULL(INCENTIVE_AMOUNT,0) from employee a left join incentives B on A.EMPLOYEE_ID=B.EMPLOYEE_REF_ID
-
 -- 63. Select first_name, incentive amount from employee and incentives table for all employees who got incentives using left join
 -- 	Select FIRST_NAME, isnull(INCENTIVE_AMOUNT,0) from employee a right join incentives B on A.EMPLOYEE_ID=B.EMPLOYEE_REF_ID
 -- 64. Select max incentive with respect to employee from employee and incentives table using sub query
@@ -173,10 +157,7 @@ Q30. Can you pass a temp table to the stored procedure as a parameter?
 -- 	select min(SALARY) from (select top N * from employee) a
 -- 69. Select First_Name,LAST_NAME from employee table as separate rows
 -- 	select FIRST_NAME from EMPLOYEE union select LAST_NAME from EMPLOYEE
-
-
 -- 71. Write create table syntax for employee table
-
 -- -CREATE TABLE EMPLOYEE(
 -- EMPLOYEE_ID int NOT NULL,
 -- FIRST_NAME varchar(50) NULL,
@@ -184,10 +165,8 @@ Q30. Can you pass a temp table to the stored procedure as a parameter?
 -- SALARY decimal(18, 0) NULL,
 -- JOINING_DATE datetime2(7) default getdate(),
 -- DEPARTMENT varchar(50) NULL)
-
 -- 72. Write syntax to delete table employee
 -- 	DROP table employee;
-
 -- 73. Write syntax to set EMPLOYEE_ID as primary key in employee table
 -- 	ALTER TABLE EMPLOYEE add CONSTRAINT EMPLOYEE_PK PRIMARY KEY(EMPLOYEE_ID)
 -- 74. Write syntax to set 2 fields(EMPLOYEE_ID,FIRST_NAME) as primary key in employee table
@@ -200,17 +179,12 @@ Q30. Can you pass a temp table to the stored procedure as a parameter?
 -- 	ALTER TABLE INCENTIVES drop CONSTRAINT INCENTIVES_FK;
 -- 78. What is SQL Injection ?
 -- 	SQL Injection is one of the the techniques uses by hackers to hack a website by injecting SQL commands in data fields.
-
--- -----------------------------------------------------------Other Querrie
 -- 1. SQL Query to find second highest salary of Employee
 -- select MAX(Salary) from Employee WHERE Salary NOT IN (select MAX(Salary) from Employee 
 -- SELECT max(salary) FROM Employee WHERE salary < (SELECT max(salary) FROM Employee);
 -- SELECT TOP 1 salary FROM ( SELECT TOP 2 salary FROM employees ORDER BY salary DESC) AS emp ORDER BY salary ASC
-
 -- 2. SQL Query to find Max Salary from each department.
 -- SELECT DeptID, MAX(Salary) FROM Employee  GROUP BY DeptID.
-
-
 
 -- Exercise-
 -- Create table with the below columns :
@@ -321,7 +295,6 @@ Q30. Can you pass a temp table to the stored procedure as a parameter?
 -- Display the Pid,Pname with total cost means Pcost * Pquantity.
 -- Display the sum , avg , count , max , min of cost of all records.
 
-
 -- Another example of News :
 -- Table : NewsType
 -- Id - Pk, identity , int
@@ -352,7 +325,6 @@ Q30. Can you pass a temp table to the stored procedure as a parameter?
 -- Others
 
 -- Table : News ( Master table)
-
 -- NewsID - pk , identity , int
 -- NewsTypeID - fk , int
 -- NewsCategoryID - fk , int//drop
@@ -383,7 +355,6 @@ Q30. Can you pass a temp table to the stored procedure as a parameter?
 -- Active bit
 
 -- Table : Person
-
 -- PersonID - pk
 -- PlaceID - int , fk
 -- PersonName - varchar(max), not null
@@ -402,3 +373,75 @@ Q30. Can you pass a temp table to the stored procedure as a parameter?
 -- Name - varchar(150) , not null , unique
 -- DateOFAdd - datetime , not null
 -- Active bit
+
+Revise all below keywords based queries :
+Identifying Data types ?
+Working with DQL statements with select command.
+Selecting Retrieving attributes e.g. columns from table ?
+Selecting the columns with customizing the display means changing the name of column for display ?
+Performing Calculations on columns of tables with arithmetic operations ?
+Retrieving selected rows with where clause and comparison operators  like =, < . >= etc?
+Retrieving records with logical operators ? And, OR , NOT ?
+Retrieving Records with range operators like between and not between 
+Retrieving records with in and not in operators .
+Retrieving Records that match a pattern with like keyword and wildcards .
+Retrieving records that contain null values.
+Retrieving records to be displayed in a sequence by using order by .
+Retrieving records from the top of a table by using top keywords ?
+Retrieving records without duplication of values by using distinct keyword ?
+Working with string functions.
+Working with Conversion functions 
+Working with Date Functions.
+Working with Mathematical functions.
+Working with Aggregate functions.
+Grouping data by using group by and having ?
+Querying data by using joins .
+Working with inner joins ?
+Working with outer joins ? Like left outer, right outer  and full outer joins ?
+Working with cross joins.
+Working with self joins .
+Working with Equi joins .
+Working with Subqueries ?
+Using in and exists keywords?
+Working with Modified Comparison operators? Like  > ALL , > ANY , =ANY etc .
+Combining result sets by using Union , Except and Intersect operators.
+Explaining Various system databases like master, tempdb, model and msdb .
+Explaining the database files  like primary,secondary and transaction log files.
+Creating, altering, renaming and droping User-defined database.  
+Creating, altering, renaming and droping  user defined tables as well as inserting rows and inserting partial data in it.
+Working with identity property in tables.
+Implementing Data integrity with Applying Constraints, Applying rules and creating user-defined data types.
+Creating Synonyms of tables.
+Copying table into new table.
+Updating and deleting existing rows.
+Difference between delete, drop and truncate .
+
+What are Advantages and disadvantages of stored procedures?    
+How many instance use in sql server 2005     
+In join, which clause in not used?             
+What is Peer to peer Replication?     
+I have to display ten columns values from different ten tables. how many joins are require?     
+how we can use a database with php. 
+I have table students with fields classname,studname select * from students classname studname 1 xxxxx 1 yyyy 1 zzzz 2 qqqq 2 tttt 3 dsds 3 www i want the output should be No of students in class 1 : 3 No of students in class 2 : 2 No of students in class 3 : 2     
+How to update a null value field in sql server eg a table contains 3 fields id,name,salary and 3 records salary of 1 record is null i want update the nullfield 111 arun 300 112 ddd 200 113 ttt null i want to update table with add 100 to every record include null after updation the recrds should be 111 arun 400 112 ddd 300 113 ttt 100            6      2606     
+
+What is cursor ? And what is difference between Trigger ?           
+How to delete duplicate rows from table in sql server         
+What is Constraint? How many types of constraints in SQL ?         
+CLR Integration ? what is Notification services ?         
+Difference between sql server 2000 and sql server 2005? 
+Can we maintain one default depreciation key for one asset of long period?               
+What is the FI-MM Flow?     
+Tell me the script for environment value parameter with an example. which situation environment value parameter is used.
+My requirement is : How to populate a empty PS/flat file with ONLY spaces in the first line. You should not use any input dataset to do this. I'm not sure whether you may use any utility for this purpose?
+What is main purpose of interface? Technology
+Exception handling if we are using the when others first then what happens . whether it will show the compiler error.
+What is static function and static class?
+How many memory locations can be addressed by a microprocessor with 14 address lines?
+How choose conductor &caple&wire depending upon the load
+I believe VB6 is a powerful and matured tool that any other front end tool, why is it outdated? is it because of lack of awareness or because of difficult to use?
+What is the meaning When we write "#include" what is # and what does include does there???
+What new abt truncate in sql server    ?
+How to find the second salary write query?     
+
+```

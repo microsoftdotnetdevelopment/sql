@@ -1065,29 +1065,7 @@ select * from employee where name like '[ads]%k'
 
 select * from employee where mobile is null
 select * from employee where mobile is not null
----------------------------------------Constraints-----------------------------------------
-/*
 
-Implementing Data Integrity:
-A.Entity Integrity --
-B.Domain Integrity --
-C.Referential integrity --
-D.User defined integrity : by set of rules.
-
-can maintain integrity by below ways :
-A.Applying constraints with Enabling and disabling constraints.
-B.Applying rules
-C.User defined data types
-
-Constraints :
-
-A.Primary Keys Constraint
-B.Unique Keys ''
-C.Foreign Keys ''
-D.Check Constraint
-E.Default Constraint
-*/
--------------------------------------------Identity columns---------------------------------
 CREATE TABLE Orders
 ( FirstName CHAR(100),
  LastName CHAR(100),
