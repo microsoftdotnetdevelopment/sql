@@ -1,6 +1,3 @@
--- Get list of databases from SQL Server
-SELECT name FROM master.sys.databases
-
 --  join example
 SELECT  name,firstname,AGE,AMOUNT  FROM CUSTOMERS, CUST_ORDERS
         WHERE  CUSTOMERS.ID = CUST_ORDERS.CUSTOMER_ID;

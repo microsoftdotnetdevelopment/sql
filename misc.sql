@@ -14,3 +14,6 @@ where name = suser_name()
 
 -- SQL Server table to json
 select * from CUST_ORDERS  FOR JSON AUTO  
+
+-- Get list of databases from SQL Server
+SELECT name FROM master.sys.databases
