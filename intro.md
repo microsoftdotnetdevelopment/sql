@@ -1,19 +1,10 @@
-index-
-
 RDBMS
-NoSQL
 1NF, 2NF, 3NF
 Normalization
 ORM
-MongoDB - Sharding
 SQLite
-MongoDB vs SQLite
-RDBMS vs MongoDB
 SQL
 Redundancy & replication
-SQL vs NoSQL
-When to Use NoSQL?
-When to Avoid NoSQL?
 
 Relational database(RDBMS)-
 
@@ -22,8 +13,6 @@ These DBs provide database environments also.
 MySQL, MariaDB, PostgreSQL, ms SQL, Oracle, SQL Server, Redis, Firebase, AWS DynamoDB, SQLite, CouchDB, AWS RDS, Cassandra, Couchbase, Cloud Firestore
 
 IBM DB2, Neo4j
-
-NoSQL database- Mongo DB, Firestore
 
 A relation is in first normal form (1NF) if (and only if):
 
@@ -53,12 +42,6 @@ Object-Relational Mapping (ORM) frameworks (DB)
 
 It is a technique (Design Pattern) for accessing a relational database from an object-oriented language.
 
-MongoDB-
-
-Its first version was released in 2009. It is the most reliable database used with the Node.JS application. Its structure of saving the data is different because it stores data in a document which is like JSON. It used the most popular document store. schema created in this is powerful and flexible.
-
-High scalability, Sharding and availability with built-in replication make it more robust.
-
 Data/Database Sharding is the capability that comes into use when database size becomes so large that a particular machine may not be able to store all data then sharding solves this problem through horizontal scaling.
 Sharding is the process of breaking up large tables into smaller chunks called shards that are spread across multiple servers. A shard is essentially a horizontal data partition that contains a subset of the total data set and hence is responsible for serving a portion of the overall workload.
 
@@ -82,55 +65,6 @@ it reads and writes directly to regular disk files. It is single-threaded, simpl
 
 SQLite is used by companies like Intuit, Codorus, and Infoshare.
 
-MongoDB vs SQLite
-
-The basic database model used in this is a document store. -It is RDBMS.
-
-scaling is done horizontally. In this, we set up multiple servers and also one standby server which shows the available server to store data. - scaling is done vertically. It is an old approach to saving and getting data. In this, we extend the hardware resources to manage the large data or bug number of users.
-
-No, join support in this so we use integrated stored engines - It supports Join.
-
-Read-only SQL queries via the MongoDB Connector for Business Intelligence (BI)- it uses SQL for queries
-
-In this, we can write Server-side scripts which are stored procedures. -we cannot write a stored procedure in this.
-
-Indexing and searching are powerful in MongoDB. -The indexing and searching are not as strong in MongoDB.
-
-written in C, C++, JS - written in C, C++
-
-RDBMS vs MongoDB:
-
-SQL Database    - NoSQL Database
-
-Table    -        Collection
-
-Tuple/Row      - Document
-
-column         - Field
-
-Table Join      - Embedded Documents
-
-Primary Key    - Primary Key (Default key _id provided by MongoDB itself)
-
-Database Server/Client: Mysql/Oracle, MySQL/sqlplus - Mongod, mongo
-
-SQL
-
-Most common query lang. used to interact with DB.
-
-It is a declarative lang.
-
-What you can do with SQL is-
-
-Access, manipulate and create DB. how to use SQL to store, query, and manipulate data.    
-
-There are various benefits of this you can be financial analysts, data-driven marketers or online entrepreneurs.
-
-Companies that use SQL-
-
-HSBC, Microsoft, Ford etc.
-
-If a company has a DB. They are using SQL queries.
 
 Redundancy & replication:
 
@@ -152,64 +86,16 @@ passive: this is the leader-follower model, where the leader receives all the re
 
 Redundancy increases reliability while Replication ensures Consistency.
 
-Choose your DB properly. You’ll have to support your decision Whether you go with SQL or NoSQL, why MySQL and not Postgres? why is this app better for a NoSQL?”
-
 What is the difference between 'REPLACE' and 'STUFF' functions in SQL Server?
 
 how to use IDENTITY in SQL Server?
 
 What do you mean by SQL join and how can you use it?
 
-SQL  vs NoSQL 
-
-SQL databases properly follow ACID properties (Atomicity, Consistency, Isolation & Durability). NoSQL databases properly follow Brewers CAP theorem (Consistency, Availability, and Partition tolerance).
-
-When to Use NoSQL?
-
-Given below are the use cases where you should prefer using NoSQL databases:
-
-To handle a huge volume of structured, semi-structured and unstructured data.
-
-Where there is a need to follow modern software development practices like Agile Scrum and if you need to deliver prototypes or fast applications.
-
-If you prefer object-oriented programming.
-
-If your relational database is not capable enough to scale up to your traffic at an acceptable cost.
-
-If you want to have an efficient, scale-out architecture in place of an expensive and monolithic architecture.
-
-If you have local data transactions that need not be very durable.
-
-If you are going with schema-less data and want to include new fields without any ceremony.
-
-When your priority is easy scalability and availability.
-
-When to Avoid NoSQL?
-
-Enlisted below are some pointers that would guide you on when to avoid NoSQL.
-
-If you are required to perform complex and dynamic querying and reporting, then you should avoid using NoSQL as it has a limited query functionality. For such requirements, you should prefer SQL only.
-
-NoSQL also lacks the ability to perform dynamic operations. It can’t guarantee ACID properties. In such cases like financial transactions, etc., you may go with SQL databases.
-
-You should also avoid NoSQL if your application needs run-time flexibility.
-
-If consistency is a must and if there aren’t going to be any large-scale changes in terms of the data volume, then going with the SQL database is a better option.
-
-The choice of the database will depend upon your preferences, business requirements, volume, and variety of data.
-
-The data you store in a NoSQL database does not need a predefined schema like you do for a SQL database
-
-SQL databases scale vertically, meaning you’ll need to increase the capacity of a single server (increasing CPU, RAM, or SSD) to scale your database. SQL databases were designed to run on a single server to maintain the integrity of the data, so they’re not easy to scale.
-
-NoSQL databases scale horizontally, meaning you can add more servers to power your growing database. This is a huge advantage that NoSQL has over SQL.
-
 How are databases shared?
 How is the network set up for redundancy and maximum throughput?
 
-https://www.smartdraw.com/entity-relationship-diagram/
 
-https://www.khanacademy.org/computing/computer-programming/sql
 
 tableplus-
 friendly GUI tool for relational databases: MySQL, PostgreSQL, SQLite

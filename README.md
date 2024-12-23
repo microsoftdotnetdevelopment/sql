@@ -1,10 +1,4 @@
 # Sql Server questions
-```
-sql vs NoSQL  
-Normalization
-Sharding
-ACID vs CAP
-
 Q01. What is a Temp Table or Temporary Table in SQL? 
 Q02. Is a duplicate Temp Table name allowed?
 Q03. Can a Temp Table be used for SELECT INTO or INSERT EXEC statement? 
@@ -446,5 +440,3 @@ I believe VB6 is a powerful and matured tool that any other front end tool, why 
 What is the meaning When we write "#include" what is # and what does include does there???
 What new abt truncate in sql server    ?
 How to find the second salary write query?     
-
-```

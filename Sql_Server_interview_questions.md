@@ -1,4 +1,5 @@
 SQL Introduction
+ACID vs CAP
 SQL stands for the structured query language. It is a database language used for database creation, deletion, fetching rows and modifying rows etc. sometimes it is pronounced as se-qwell. It appeared in 1974. SQL doesn't have a loop or Conditional statement. It is used like commanding language to access databases.
 SQL or Structured Query Language is a language which is used to communicate with a relational database. It provides a way to manipulate and create databases. 
 On the other hand, MySQL and Microsoft's SQL Server both are relational database management systems that use SQL as their standard relational database language.
@@ -347,19 +348,3 @@ The CHAR function is the opposite of the ASCII function. It returns the characte
 C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\Backup //Backup of sql server store
 computed column specification //use any formula here
 Identity specification //it is related to autoincrement
-
-
-
----------------------------------------Constraints-----------------------------------------
-/*
-
-Implementing Data Integrity:
-A.Entity Integrity --
-B.Domain Integrity --
-C.Referential integrity --
-D.User defined integrity : by set of rules.
-
-can maintain integrity by below ways :
-A.Applying constraints with Enabling and disabling constraints.
-B.Applying rules
-C.User defined data types
