@@ -326,9 +326,7 @@ go
 The HAVING clause enables you to specify conditions that filter which group results appear in the final results.
 The WHERE clause places conditions on the selected columns, whereas the HAVING clause places conditions on groups created by the GROUP BY clause.
 
-SQL - Injection
-If you take user input through a webpage and insert it into a SQL database, there's a chance that you have left yourself wide open for a security issue known as SQL Injection.
-Injection usually occurs when you ask a user for input, like their name, and instead of a name, they give you a SQL statement that you will unknowingly run on your database.
+
 
 CHARINDEX-
 The CHARINDEX string function returns the starting position of the specified expression in a character string. 

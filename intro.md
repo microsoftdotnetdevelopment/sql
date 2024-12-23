@@ -215,3 +215,12 @@ tableplus-
 friendly GUI tool for relational databases: MySQL, PostgreSQL, SQLite
 
 Entity Relationship Diagram (ERD)?
+
+Redundancy
+can include any
+Kind of resource which is extraneous,
+including:
+extra functions
+•extra data/information 
+extra execution time.
+• extra memory, files, or processes

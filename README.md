@@ -3,7 +3,6 @@
 sql vs NoSQL  
 Normalization
 Sharding
-Redundancy
 ACID vs CAP
 
 Q01. What is a Temp Table or Temporary Table in SQL? 
@@ -177,8 +176,12 @@ Q30. Can you pass a temp table to the stored procedure as a parameter?
 -- 	ALTER TABLE INCENTIVES ADD CONSTRAINT INCENTIVES_FK FOREIGN KEY (EMPLOYEE_REF_ID) REFERENCES EMPLOYEE(EMPLOYEE_ID)
 -- 77. Write SQL to drop foreign key on employee table
 -- 	ALTER TABLE INCENTIVES drop CONSTRAINT INCENTIVES_FK;
+
 -- 78. What is SQL Injection ?
--- 	SQL Injection is one of the the techniques uses by hackers to hack a website by injecting SQL commands in data fields.
+-- 	SQL Injection is one of the the techniques uses by hackers to hack a website by injecting SQL commands in data fields. SQL Injection (SQLi) refers to an injection attack wherein an attacker can execute malicious SQL statements (also commonly referred to as a malicious payload) that control a web application's database server.
+If you take user input through a webpage and insert it into a SQL database, there's a chance that you have left yourself wide open for a security issue known as SQL Injection.
+Injection usually occurs when you ask a user for input, like their name, and instead of a name, they give you a SQL statement that you will unknowingly run on your database.
+
 -- 1. SQL Query to find second highest salary of Employee
 -- select MAX(Salary) from Employee WHERE Salary NOT IN (select MAX(Salary) from Employee 
 -- SELECT max(salary) FROM Employee WHERE salary < (SELECT max(salary) FROM Employee);
