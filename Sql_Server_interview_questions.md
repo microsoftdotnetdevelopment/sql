@@ -348,3 +348,6 @@ The CHAR function is the opposite of the ASCII function. It returns the characte
 C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\Backup //Backup of sql server store
 computed column specification //use any formula here
 Identity specification //it is related to autoincrement
+
+DDL is a Data Definition Language that is used to define data structures. For example: creating a table, and altering a table are instructions in SQL. 
+DML is a Data Manipulation Language that is used to manipulate data itself. For example: insert, update, and delete are instructions in SQL.

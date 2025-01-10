@@ -68,6 +68,7 @@ alter table classics drop type
 alter table classics rename to classy
 Alter table PersonalDetails ADD Primary Key (AutoId)
 Alter table PersonalDetails Add AutoId int NOT NULL IDENTITY (1, 1) Primary key
+alter table person add editordescription varchar(250) identity
 
 ALTER TABLE EMPLOYE add CONSTRAINT EMPLOYEE_PK PRIMARY KEY(EMPLOYEE_ID)
 ALTER TABLE EMPLOYE add CONSTRAINT EMPLOYEE_PK PRIMARY KEY(EMPLOYEE_ID,FIRST_NAME)
@@ -78,3 +79,10 @@ SP_RENAME 'dbo.customers.NAME','firstname'
 drop table EmpCompany
 		
 drop table employee1
+
+alter table employee alter column Joining_date date
+
+delete employee
+drop table employee
+
+DROP INDEX idx ON dbo.orders;

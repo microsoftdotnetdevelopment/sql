@@ -878,7 +878,7 @@ select personName from Person where in (select Editorid from news)
 select * from aspnet_Users
 select * from newscategory
 
-alter table person add editordescription varchar(250) identity
+
 select * from person
 SET IDENTITY_INSERT dbo.person ON
 ALTER TABLE person alter COLUMN editordescription   varchar(500) 
@@ -973,51 +973,6 @@ select Joining_date from employee
  select Last_name from employee where Last_name like '%[%]%'
  select Replace(Last_name,'%',' ') from employee
 
-
-
-create table Incentives(Employee_ref_id int,Incentive_date date,Incentive_amount int)
-
-alter table employee alter column Joining_date date
-
-select First_Name,Last_Name from employee 
-select First_name as "Employee Name" from employee
-select UPPER(First_name) AS first_name from employee
-select Lower(First_name) AS first_name from employee
-
-select distinct department from employee
-select LEFT(First_name,3) from employee
-select CHARINDEX('o','john') from employee
-select len(First_name) from employee
-select RTRIM(FIRST_NAME) from employee
-select LTRIM(FIRST_NAME) from employee
-
-select REPLACE(First_name,'o','$') from employee
-select First_name + '_'+ Last_name from employee
-select First_name ,(Year(Joining_date)),(Month(Joining_date)),Joining_date from employee
-select * from employee order by First_name asc
-select * from employee order by First_name desc
-select * from employee order by First_name asc,salary desc
-select * from employee where First_name in ('John','roy')
-select * from employee where First_name not in ('John','roy')
-select * from employee where First_name like 'j%'
-select * from employee where First_name like '%o%'
-select * from employee where First_name like '%n'
-select * from employee where First_name like '%n' And len(First_name)=4
-select * from employee where First_name like '___n'
-select * from employee where First_name like 'j___'
-select * from employee where Salary>600000
-select * from employee where Salary<800000
-select * from employee where Salary>=600000 and salary<=800000
-Select * from EMPLOYEE where Salary between 500000 and 800000
-Select * from EMPLOYEE where FIRST_NAME in ('John','Michael')
-select * from employee where(YEAR(Joining_date) = 2013)
-select * from employee where( MONTH(Joining_date)= 01 )
-Select * from EMPLOYEE where joining_date < '01/01/2013'
-Select * from EMPLOYEE where joining_date > '01/31/2013'
-select Joining_date from employee
- select getdate()
- select Last_name from employee where Last_name like '%[%]%'
- select Replace(Last_name,'%',' ') from employee
  select Incentive_date - Joining_date from employee a inner join Incentives b on a.Employee_id=b.Employee_ref_id
  select department,sum(salary) from employee group by Department
  select * from employee where First_name!='john' and First_name!='roy'
@@ -1047,9 +1002,6 @@ select eid , name from employee
 
 select eid , name from employee where eid=65
 
-delete employee
-drop table employee
-
 select eid , name ,  salary as 'Old Salary','New salary '= (1.1) * salary from employee
 
 select * from employee where name like 'a%' or name like 'd%' or name like 's%'
@@ -1063,10 +1015,6 @@ select * from employee where name like '[ads]%k'
 select * from employee where mobile is null
 select * from employee where mobile is not null
 
-CREATE TABLE Orders
-( FirstName CHAR(100),
- LastName CHAR(100),
- OrderDate DATE,
- OrderValue Currency )
-
  -- SELECT NOW(),CURDATE(),CURTIME()
+SELECT COALESCE(NULL, NULL, NULL, 'W3Schools.com', NULL, 'Example.com');
+ SELECT firstName +' '+COALESCE(MiddleName,'') +' '+ LastName  FROM Person.Person

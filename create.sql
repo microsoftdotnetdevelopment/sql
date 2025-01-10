@@ -327,3 +327,30 @@ insert into Reporter values(newid(),'C9C685AF-2476-4491-8A1B-D9E0573E1D77','12-4
 insert into Reporter values(newid(),'DC8C36D2-67B7-411C-8265-38A654B29279','11-6-2016',1)
 insert into Reporter values(newid(),'6FA5B882-0384-411F-8F0C-51AB3B5A06B4','11-6-2016',1)
 insert into Reporter values(newid(),'ABC0B8F5-1D0A-4325-8F06-DA924C5F1F87','11-6-2016',1)
+
+CREATE TABLE Orders
+( FirstName CHAR(100),
+ LastName CHAR(100),
+ OrderDate DATE,
+ OrderValue Currency )
+
+ create table Incentives(Employee_ref_id int,Incentive_date date,Incentive_amount int)
+
+--   a view is a virtual table based on the result-set of an SQL statement.
+-- A view contains rows and columns, just like a real table. The fields in a view are fields from one or more real tables in the database.
+
+CREATE VIEW [Brazil Customers] AS
+SELECT CustomerName, ContactName
+FROM Customers
+WHERE Country = 'Brazil';
+
+SELECT * FROM [Brazil Customers];
+
+CREATE INDEX idx
+ ON dbo.Orders(FirstName);
+
+-- in sql server or mysql the queries will be different
+ SELECT * 
+FROM dbo.Orders 
+WITH (INDEX (idx));
+

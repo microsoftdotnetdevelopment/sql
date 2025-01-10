@@ -4,7 +4,6 @@ Normalization
 ORM
 SQLite
 SQL
-Redundancy & replication
 
 Relational database(RDBMS)-
 
@@ -75,6 +74,8 @@ active - where all the traffic goes to all nodes at the same time
 passive - where one node receive traffic and in the case of failure, a switch will be made to another node.
 
 "Redundancy is the duplication of nodes, in case some of them are failing"
+Redundancy can include any Kind of resource which is extraneous, including: extra functions
+•extra data/information, extra execution time. • extra memory, files, or processes
 
 Replication - includes redundancy, but involves the copying of data from one node to another or the synchronization of state between nodes. An example of where replication is done is at the databases or MQs level that forms a cluster. Replication can be:
 
@@ -99,19 +100,6 @@ How is the network set up for redundancy and maximum throughput?
 
 tableplus-
 friendly GUI tool for relational databases: MySQL, PostgreSQL, SQLite
-
-Entity Relationship Diagram (ERD)?
-
-Redundancy
-can include any
-Kind of resource which is extraneous,
-including:
-extra functions
-•extra data/information 
-extra execution time.
-• extra memory, files, or processes
-
-
 
 # Sql Server questions
 Q01. What is a Temp Table or Temporary Table in SQL? 
